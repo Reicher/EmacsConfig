@@ -40,16 +40,21 @@
   :ensure t)
 
 (use-package elpy
-  :ensure t)
-
-(elpy-enable)
+  :ensure t
+  :config
+  (elpy-enable))
 
 (use-package color-theme
   :ensure t)
 
-(use-package color-theme-solarized
+(use-package solarized-theme
   :ensure t
   :init
   (load-theme 'solarized-dark t))
+
+;;** Disable autosave and backups
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(auto-save-mode 0)
 
 ;; (global-linum-mode t) ;; enable line numbers globally

@@ -57,5 +57,10 @@
   :init
   (load-theme 'solarized-dark t))
 
+;;** Disable autosave and backups
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(auto-save-mode 0)
+
 ;; (global-linum-mode t) ;; enable line numbers globally
 (global-set-key (kbd "C-x C-o") 'ff-find-other-file)

@@ -40,16 +40,22 @@
   :ensure t)
 
 (use-package elpy
-  :ensure t)
+  :ensure t
+  :config
+  (elpy-enable))
 
-(elpy-enable)
+;;** Disable autosave and backups
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(auto-save-mode 0)
 
 (use-package color-theme
   :ensure t)
 
-(use-package color-theme-solarized
+(use-package solarized-theme
   :ensure t
   :init
   (load-theme 'solarized-dark t))
 
 ;; (global-linum-mode t) ;; enable line numbers globally
+(global-set-key (kbd "C-x C-o") 'ff-find-other-file)

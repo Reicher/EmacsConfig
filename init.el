@@ -49,13 +49,24 @@
 (setq auto-save-default nil)
 (auto-save-mode 0)
 
+;; Cleanup whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Set python indent to 4
+(add-hook 'python-mode-hook
+      (lambda ()
+        ;;(setq indent-tabs-mode t)
+	(setq indent-tabs-mode nil)
+        (setq tab-width 4)
+        (setq python-indent 4)))
+
 (use-package color-theme
   :ensure t)
 
 (use-package solarized-theme
   :ensure t
   :init
-  (load-theme 'solarized-dark t))
+  (load-theme 'solarized t))
 
 ;;** Disable autosave and backups
 (setq make-backup-files nil)

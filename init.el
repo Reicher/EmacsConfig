@@ -36,6 +36,10 @@
   :ensure t
   :init (nyan-mode 1))
 
+(use-package latex-preview-pane
+  :ensure t
+  :config (latex-preview-pane-enable))
+
 (use-package magit
   :ensure t)
 
@@ -72,6 +76,9 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (auto-save-mode 0)
+
+;; Remove top toolbar
+(tool-bar-mode 0)
 
 ;; (global-linum-mode t) ;; enable line numbers globally
 (global-set-key (kbd "C-x C-o") 'ff-find-other-file)

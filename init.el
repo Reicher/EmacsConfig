@@ -1,3 +1,5 @@
+;;;; TO RELOAD THIS FILE: Use command load-file (M-x load-file) return twice.
+
 ;;;; Setup so we can use package management system and use-package(require 'package)
 (progn  (setq package-archives nil)
 	(add-to-list 'package-archives
@@ -35,10 +37,6 @@
 (use-package nyan-mode
   :ensure t
   :init (nyan-mode 1))
-
-(use-package latex-preview-pane
-  :ensure t
-  :config (latex-preview-pane-enable))
 
 (use-package magit
   :ensure t)

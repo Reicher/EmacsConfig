@@ -48,6 +48,11 @@
   :config
   (elpy-enable))
 
+(use-package git-gutter+
+  :ensure t
+  :config
+  (global-git-gutter+-mode))
+
 ;;** Disable autosave and backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)

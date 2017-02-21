@@ -51,7 +51,13 @@
   :config
   (global-git-gutter+-mode))
 
-;;** Disable autosave and backups
+;; my god..
+(use-package guru-mode
+  :ensure t
+  :config
+  (guru-global-mode +1))
+
+;; Disable autosave and backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (auto-save-mode 0)

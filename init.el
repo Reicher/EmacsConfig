@@ -25,14 +25,9 @@
 
 (require 'use-package)
 
-(use-package psvn
-  :ensure t)
-
-(use-package neotree
+(use-package auto-dim-other-buffers
   :ensure t
-  :config
-  (global-set-key [f8] 'neotree-toggle)
-  (setq neo-smart-open t))
+  :config (auto-dim-other-buffers-mode 1))
 
 (use-package nyan-mode
   :ensure t
@@ -56,6 +51,9 @@
   :ensure t
   :config
   (guru-global-mode +1))
+
+(use-package org
+  :ensure t)
 
 ;; Disable autosave and backups
 (setq make-backup-files nil)

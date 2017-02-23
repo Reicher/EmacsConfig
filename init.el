@@ -61,7 +61,7 @@
 (auto-save-mode 0)
 
 ;; Cleanup whitespace on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook before-save-hook 'delete-trailing-whitespace)
 
 ;; Set python indent to 4
 (add-hook 'python-mode-hook
@@ -70,6 +70,10 @@
 	(setq indent-tabs-mode nil)
         (setq tab-width 4)
         (setq python-indent 4)))
+
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
 
 (use-package color-theme
   :ensure t)

@@ -11,7 +11,8 @@
   :init (nyan-mode 1))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config (bind-key "C-x m" 'magit-status))
 
 (use-package elpy
   :ensure t

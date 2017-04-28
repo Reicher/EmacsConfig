@@ -73,6 +73,9 @@
   :init
   (load-theme 'solarized t))
 
+;; Set .my files in snmp (v2) mode right away
+(add-to-list 'auto-mode-alist '("\\.my\\'" . snmpv2-mode))
+
 ;;** Disable autosave and backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -81,5 +84,4 @@
 ;; Remove top toolbar
 (tool-bar-mode 0)
 
-;; (global-linum-mode t) ;; enable line numbers globally
 (global-set-key (kbd "C-x C-o") 'ff-find-other-file)

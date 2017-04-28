@@ -34,14 +34,6 @@
 (use-package clang-format
   :ensure t)
 
-(use-package projectile
-  :ensure t
-  :demand t)
-
-(use-package ibuffer-vc
-  :ensure t
-  :demand t)
-
 (use-package which-key
   :ensure t
   :config (which-key-mode))

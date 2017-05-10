@@ -12,7 +12,8 @@
 
 (use-package magit
   :ensure t
-  :config (bind-key "C-x m" 'magit-status))
+  :config (bind-key "C-x m" 'magit-status)
+  (add-hook 'magit-status-sections-hook 'magit-insert-submodules 'last))
 
 (use-package elpy
   :ensure t
@@ -40,6 +41,10 @@
 
 (use-package org
   :ensure t)
+
+;; DOESNT WORK! FIX FIX FIX
+(require 'org-journal)
+
 
 ;; Disable autosave and backups
 (setq make-backup-files nil)
@@ -77,3 +82,7 @@
 (tool-bar-mode 0)
 
 (global-set-key (kbd "C-x C-o") 'ff-find-other-file)
+
+(custom-set-variables
+ '(magit-commit-arguments (quote ("--signoff"))))
+(custom-set-faces )

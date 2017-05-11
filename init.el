@@ -40,11 +40,10 @@
   :config (which-key-mode))
 
 (use-package org
-  :ensure t)
-
-;; DOESNT WORK! FIX FIX FIX
-(require 'org-journal)
-
+  :ensure t
+  :config
+  (use-package org-journal
+    :ensure t))
 
 ;; Disable autosave and backups
 (setq make-backup-files nil)
@@ -78,11 +77,12 @@
 (setq auto-save-default nil)
 (auto-save-mode 0)
 
+;; Save all buffers and stuff when exiting emacs
+(desktop-save-mode 1)
+
 ;; Remove top toolbar
 (tool-bar-mode 0)
 
-(global-set-key (kbd "C-x C-o") 'ff-find-other-file)
-
 (custom-set-variables
  '(magit-commit-arguments (quote ("--signoff"))))
-(custom-set-faces )
+(custom-set-faces)

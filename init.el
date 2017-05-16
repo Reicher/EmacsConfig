@@ -90,3 +90,7 @@
 (custom-set-variables
  '(magit-commit-arguments (quote ("--signoff"))))
 (custom-set-faces)
+
+;; Disables exit emacs and minimize/suspend emacs commands
+(global-set-key "\C-x\C-z" nil)
+(global-set-key (kbd "C-x C-z") nil)

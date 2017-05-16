@@ -20,6 +20,12 @@
   :config
   (elpy-enable))
 
+(use-package fill-column-indicator
+  :ensure t
+  :config (add-hook 'prog-mode-hook (lambda ()
+    (fci-mode 1)
+  )))
+
 (use-package git-gutter+
   :ensure t
   :config

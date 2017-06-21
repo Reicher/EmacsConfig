@@ -77,7 +77,7 @@
 (use-package solarized-theme
   :ensure t
   :init
-  (load-theme 'solarized t))
+  (load-theme 'solarized-dark t))
 
 ;; Set .my files in snmp (v2) mode right away
 (add-to-list 'auto-mode-alist '("\\.my\\'" . snmpv2-mode))

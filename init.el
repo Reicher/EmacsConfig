@@ -80,7 +80,7 @@
 (use-package solarized-theme
   :ensure t
   :init
-  (load-theme 'solarized t))
+  (load-theme 'solarized-dark t))
 
 ;; Kill all buffers
 (defun nuke-all-buffers ()

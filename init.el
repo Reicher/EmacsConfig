@@ -55,6 +55,9 @@
   (use-package org-journal
     :ensure t))
 
+;; Matching () {}
+(show-paren-mode t)
+
 ;; Disable autosave and backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -78,6 +81,13 @@
   :ensure t
   :init
   (load-theme 'solarized t))
+
+;; Kill all buffers
+(defun nuke-all-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
+(global-set-key (kbd "C-x K") 'nuke-all-buffers)
 
 ;; Set .my files in snmp (v2) mode right away
 (add-to-list 'auto-mode-alist '("\\.my\\'" . snmpv2-mode))

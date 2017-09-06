@@ -15,6 +15,8 @@
   :config (bind-key "C-x m" 'magit-status)
   (add-hook 'magit-status-sections-hook 'magit-insert-submodules 'last))
 
+(bind-key* [C-tab] 'other-window)
+
 (use-package elpy
   :ensure t
   :config

@@ -79,10 +79,10 @@
 (use-package color-theme
   :ensure t)
 
-(use-package solarized-theme
-  :ensure t
-  :init
-  (load-theme 'solarized-dark t))
+(use-package color-theme-solarized
+  :config
+  (customize-set-variable 'frame-background-mode 'dark)
+  (load-theme 'solarized t))
 
 ;; Kill all buffers
 (defun nuke-all-buffers ()

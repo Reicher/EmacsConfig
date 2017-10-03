@@ -1,4 +1,11 @@
 ;;;; TO RELOAD THIS FILE: Use command load-file (M-x load-file) return twice.
+;;;; C-M-x för att ladda om ett helt kommando
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 (load-file "~/.emacs.d/package_stuff.el")
 
@@ -8,11 +15,13 @@
 
 (use-package nyan-mode
   :ensure t
-  :init (nyan-mode 1))
+  :init (nyan-mode t))
 
 (use-package magit
   :ensure t
-  :config (bind-key "C-x m" 'magit-status)
+  :config
+  (bind-key "C-x m" 'magit-status)
+  (bind-key "C-x l" 'magit-log-buffer-file)
   (add-hook 'magit-status-sections-hook 'magit-insert-submodules 'last))
 
 (bind-key* [C-tab] 'other-window)
@@ -106,8 +115,21 @@
 (tool-bar-mode 0)
 
 (custom-set-variables
- '(magit-commit-arguments (quote ("--signoff"))))
-(custom-set-faces)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(frame-background-mode (quote dark))
+ '(magit-commit-arguments (quote ("--signoff")))
+ '(package-selected-packages
+   (quote
+    (ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; Disables exit emacs and minimize/suspend emacs commands
 (global-set-key "\C-x\C-z" nil)

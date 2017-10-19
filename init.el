@@ -108,8 +108,11 @@
 (setq auto-save-default nil)
 (auto-save-mode 0)
 
-;; Save all buffers and stuff when exiting emacs
+;; Save all buffers and stuff when exiting emacs, seccond line to remove
+;; the really anoying pid-warning at startup
 (desktop-save-mode 1)
+(setq desktop-base-lock-name
+      (convert-standard-filename (format ".emacs.desktop.lock-%d" (emacs-pid))))
 
 ;; Remove top toolbar
 (tool-bar-mode 0)

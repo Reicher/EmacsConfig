@@ -26,6 +26,8 @@
 
 (bind-key* [C-tab] 'other-window)
 
+(setq tramp-default-method "ssh")
+
 (use-package elpy
   :ensure t
   :config
@@ -76,6 +78,16 @@
 
 ;; Cleanup whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Counsel
+(use-package counsel-projectile
+     :demand t
+     :config
+     (counsel-projectile-on))
+
+;; Counsel-ag
+(use-package counsel-ag
+     :demand t)
 
 ;; Set python indent to 4
 (add-hook 'python-mode-hook

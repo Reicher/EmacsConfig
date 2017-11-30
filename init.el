@@ -45,11 +45,11 @@
   (global-git-gutter+-mode))
 
 ;; my god..
-(use-package guru-mode
-  :ensure t
-  :config
-  (guru-global-mode +1)
-  (setq guru-warn-only t))
+;; (use-package guru-mode
+;;   :ensure t
+;;   :config
+;;   (guru-global-mode +1)
+;;   (setq guru-warn-only t))
 
 (use-package clang-format
   :ensure t)
@@ -104,6 +104,9 @@
   :config
   (customize-set-variable 'frame-background-mode 'dark)
   (load-theme 'solarized t))
+
+
+(ido-mode t)
 
 ;; Kill all buffers
 (defun nuke-all-buffers ()

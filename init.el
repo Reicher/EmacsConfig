@@ -17,6 +17,11 @@
   :ensure t
   :init (nyan-mode t))
 
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 (use-package magit
   :ensure t
   :config
@@ -141,7 +146,7 @@
  '(magit-commit-arguments (quote ("--signoff")))
  '(package-selected-packages
    (quote
-    (ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
+    (editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

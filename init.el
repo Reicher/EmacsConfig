@@ -8,6 +8,16 @@
 (package-initialize)
 
 (load-file "~/.emacs.d/package_stuff.el")
+(load-file "~/.emacs.d/intelli_stuff.el")
+
+(defun linux-c-mode ()
+  "C mode with adjusted defaults for use with the Linux kernel."
+  (interactive)
+  (c-mode)
+  (c-set-style "K&R")
+  (setq tab-width 8)
+  (setq indent-tabs-mode t)
+  (setq c-basic-offset 8))
 
 (use-package auto-dim-other-buffers
   :ensure t
@@ -130,9 +140,9 @@
 
 ;; Save all buffers and stuff when exiting emacs, seccond line to remove
 ;; the really anoying pid-warning at startup
-(desktop-save-mode 1)
-(setq desktop-base-lock-name
-      (convert-standard-filename (format ".emacs.desktop.lock-%d" (emacs-pid))))
+;; (desktop-save-mode 1)
+;; (setq desktop-base-lock-name
+;;       (convert-standard-filename (format ".emacs.desktop.lock-%d" (emacs-pid))))
 
 ;; Remove top toolbar
 (tool-bar-mode 0)

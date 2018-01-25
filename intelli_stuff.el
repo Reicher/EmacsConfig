@@ -1,3 +1,5 @@
+;; "make linux_gtags" för att bygga allt som krävs i weos
+
 (use-package ggtags
   :demand t
   :bind (:map ggtags-mode-map
@@ -28,3 +30,6 @@
       (counsel-gtags-mode 1)))
 
   (add-hook 'c-mode-common-hook 'counsel-gtags-mode-in-my-modes))
+
+;; Now add all the company stuff
+(load-file "~/.emacs.d/company.el")

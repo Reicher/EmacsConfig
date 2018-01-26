@@ -8,21 +8,9 @@
 (package-initialize)
 
 (load-file "~/.emacs.d/package_stuff.el")
-(load-file "~/.emacs.d/intelli_stuff.el")
+(load-file "~/.emacs.d/code_completion_stuff.el")
 
-(defun linux-c-mode ()
-  "C mode with adjusted defaults for use with the Linux kernel."
-  (interactive)
-  (c-mode)
-  (c-set-style "K&R")
-  (setq tab-width 8)
-  (setq indent-tabs-mode t)
-  (setq c-basic-offset 8))
-
-(use-package auto-dim-other-buffers
-  :ensure t
-  :config (auto-dim-other-buffers-mode 1))
-
+;; Nyan cat shows how far in the buffer you have scrolled.
 (use-package nyan-mode
   :ensure t
   :init (nyan-mode t))
@@ -39,7 +27,6 @@
   (bind-key "C-x l" 'magit-log-buffer-file)
   (add-hook 'magit-status-sections-hook 'magit-insert-submodules 'last))
 
-(bind-key* [C-tab] 'other-window)
 
 (setq tramp-default-method "ssh")
 
@@ -54,12 +41,13 @@
     (fci-mode 1)
   )))
 
+;; Adds a git overview in the "gutter" of a buffer
 (use-package git-gutter+
   :ensure t
   :config
   (global-git-gutter+-mode))
 
-;; my god..
+;; Punishes you for not using emacs bindings..
 ;; (use-package guru-mode
 ;;   :ensure t
 ;;   :config
@@ -73,6 +61,7 @@
   :ensure t
   :config (projectile-mode))
 
+;; Brings up a view of commands when you made half a command...
 (use-package which-key
   :ensure t
   :config (which-key-mode))
@@ -82,6 +71,14 @@
   :config
   (use-package org-journal
     :ensure t))
+
+;; Makes the focused buffer a little brighter than the rest
+(use-package auto-dim-other-buffers
+  :ensure t
+  :config (auto-dim-other-buffers-mode 1))
+
+;; Switch buffers easy
+(bind-key* [C-tab] 'other-window)
 
 ;; Matching () {}
 (show-paren-mode t)
@@ -120,8 +117,17 @@
   (customize-set-variable 'frame-background-mode 'dark)
   (load-theme 'solarized t))
 
-
+;; Changes C-x C-f to a supercool mode...
 (ido-mode t)
+
+(defun linux-c-mode ()
+  "C mode with adjusted defaults for use with the Linux kernel."
+  (interactive)
+  (c-mode)
+  (c-set-style "K&R")
+  (setq tab-width 8)
+  (setq indent-tabs-mode t)
+  (setq c-basic-offset 8))
 
 ;; Kill all buffers
 (defun nuke-all-buffers ()

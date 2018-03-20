@@ -17,4 +17,8 @@
   (message "`use-package' not found. Installing...")
   (package-install 'use-package))
 
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
 (require 'use-package)

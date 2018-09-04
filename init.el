@@ -15,11 +15,6 @@
   :ensure t
   :init (nyan-mode t))
 
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
-
 (use-package magit
   :ensure t
   :config
@@ -27,19 +22,21 @@
   (bind-key "C-x l" 'magit-log-buffer-file)
   (add-hook 'magit-status-sections-hook 'magit-insert-submodules 'last))
 
-
 (setq tramp-default-method "ssh")
 
+;; For python IDE stuffz
 (use-package elpy
   :ensure t
   :config
   (elpy-enable))
 
+;; Line-width line
 (use-package fill-column-indicator
   :ensure t
-  :config (add-hook 'prog-mode-hook (lambda ()
-    (fci-mode 1)
-  )))
+  :config
+  (add-hook'prog-mode-hook
+   (lambda ()
+     (fci-mode 1))))
 
 ;; Adds a git overview in the "gutter" of a buffer
 (use-package git-gutter+
@@ -54,8 +51,12 @@
 ;;   (guru-global-mode +1)
 ;;   (setq guru-warn-only t))
 
+;; Format stuff in clang-format.
 (use-package clang-format
-  :ensure t)
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c i") 'clang-format-region)
+  (global-set-key (kbd "C-c u") 'clang-format-buffer))
 
 (use-package projectile
   :ensure t
@@ -91,15 +92,15 @@
 ;; Cleanup whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Counsel
-(use-package counsel-projectile
-     :demand t
-     :config
-     (counsel-projectile-on))
+;; ;; Counsel
+;; (use-package counsel-projectile
+;;      :demand t
+;;      :config
+;;      (counsel-projectile-on))
 
-;; Counsel-ag
-(use-package counsel-ag
-     :demand t)
+;; ;; Counsel-ag
+;; (use-package counsel-ag
+;;      :demand t)
 
 ;; Set python indent to 4
 (add-hook 'python-mode-hook

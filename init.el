@@ -174,3 +174,5 @@
 ;; Disables exit emacs and minimize/suspend emacs commands
 (global-set-key "\C-x\C-z" nil)
 (global-set-key (kbd "C-x C-z") nil)
+
+(global-unset-key (kbd "C-x C-c"))

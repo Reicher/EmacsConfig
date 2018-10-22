@@ -24,6 +24,17 @@
 
 (setq tramp-default-method "ssh")
 
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+(use-package crux
+  :ensure t)
+
 ;; For python IDE stuffz
 (use-package elpy
   :ensure t
@@ -66,6 +77,11 @@
 (use-package which-key
   :ensure t
   :config (which-key-mode))
+
+(use-package lua-mode
+  :ensure t)
+
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 
 (use-package org
   :ensure t
@@ -163,7 +179,7 @@
  '(magit-commit-arguments (quote ("--signoff")))
  '(package-selected-packages
    (quote
-    (editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
+    (lua-mode markdown-mode editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

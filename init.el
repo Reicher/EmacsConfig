@@ -79,9 +79,8 @@
   :config (which-key-mode))
 
 (use-package lua-mode
-  :ensure t)
-
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+  :ensure t
+  :mode "\\.lua\\'")
 
 (use-package org
   :ensure t

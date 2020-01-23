@@ -8,9 +8,16 @@
 (package-initialize)
 
 (load-file "~/.emacs.d/package_stuff.el")
-(load-file "~/.emacs.d/code_completion_stuff.el")
 
-;; Nyan cat shows how far in the buffer you have scrolled.
+(use-package molokai-theme
+  :ensure t
+  :load-path "themes"
+  :init
+  (setq molokai-theme-kit t)
+  :config
+  (load-theme 'molokai t))
+
+;; Nyan cat wants to show you how far in the buffer you have scrolled.
 (use-package nyan-mode
   :ensure t
   :init (nyan-mode t))
@@ -19,8 +26,7 @@
   :ensure t
   :config
   (bind-key "C-x m" 'magit-status)
-  (bind-key "C-x l" 'magit-log-buffer-file)
-  (add-hook 'magit-status-sections-hook 'magit-insert-submodules 'last))
+  (bind-key "C-x l" 'magit-log-buffer-file))
 
 (setq tramp-default-method "ssh")
 
@@ -63,11 +69,11 @@
 ;;   (setq guru-warn-only t))
 
 ;; Format stuff in clang-format.
-(use-package clang-format
-  :ensure t
-  :config
-  (global-set-key (kbd "C-c i") 'clang-format-region)
-  (global-set-key (kbd "C-c u") 'clang-format-buffer))
+;; (use-package clang-format
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "C-c i") 'clang-format-region)
+;;   (global-set-key (kbd "C-c u") 'clang-format-buffer))
 
 (use-package projectile
   :ensure t
@@ -117,21 +123,6 @@
 ;; (use-package counsel-ag
 ;;      :demand t)
 
-;; Set python indent to 4
-(add-hook 'python-mode-hook
-      (lambda ()
-        ;;(setq indent-tabs-mode t)
-	(setq indent-tabs-mode nil)
-        (setq tab-width 4)
-        (setq python-indent 4)))
-
-(use-package color-theme
-  :ensure t)
-
-(use-package color-theme-solarized
-  :config
-  (customize-set-variable 'frame-background-mode 'dark)
-  (load-theme 'solarized t))
 
 ;; Changes C-x C-f to a supercool mode...
 (ido-mode t)
@@ -152,9 +143,6 @@
   (delete-other-windows))
 (global-set-key (kbd "C-x K") 'nuke-all-buffers)
 
-;; Set .my files in snmp (v2) mode right away
-(add-to-list 'auto-mode-alist '("\\.my\\'" . snmpv2-mode))
-
 ;;** Disable autosave and backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -169,6 +157,11 @@
 ;; Remove top toolbar
 (tool-bar-mode 0)
 
+;; Disables exit emacs and minimize/suspend emacs commands
+(global-set-key "\C-x\C-z" nil)
+(global-set-key (kbd "C-x C-z") nil)
+
+(global-unset-key (kbd "C-x C-c"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -178,16 +171,10 @@
  '(magit-commit-arguments (quote ("--signoff")))
  '(package-selected-packages
    (quote
-    (lua-mode markdown-mode editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
+    (sanityinc-solarized-light molokai-theme lua-mode markdown-mode editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; Disables exit emacs and minimize/suspend emacs commands
-(global-set-key "\C-x\C-z" nil)
-(global-set-key (kbd "C-x C-z") nil)
-
-(global-unset-key (kbd "C-x C-c"))

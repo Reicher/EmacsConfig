@@ -9,13 +9,8 @@
 
 (load-file "~/.emacs.d/package_stuff.el")
 
-(use-package molokai-theme
-  :ensure t
-  :load-path "themes"
-  :init
-  (setq molokai-theme-kit t)
-  :config
-  (load-theme 'molokai t))
+;; solarized-emacs - Solarized colorscheme for Emacs
+(load-theme 'sanityinc-solarized-light)
 
 ;; Nyan cat wants to show you how far in the buffer you have scrolled.
 (use-package nyan-mode
@@ -167,11 +162,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(frame-background-mode (quote dark))
  '(magit-commit-arguments (quote ("--signoff")))
  '(package-selected-packages
    (quote
-    (sanityinc-solarized-light molokai-theme lua-mode markdown-mode editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
+    (color-theme-sanityinc-solarized sanityinc-solarized-light molokai-theme lua-mode markdown-mode editorconfig ggtags which-key use-package solarized-theme psvn org-journal org nyan-mode neotree markdown-preview-eww magit latex-preview-pane jedi-core ibuffer-vc ibuffer-projectile guru-mode git-gutter+ fill-column-indicator elpy color-theme-solarized clang-format auto-dim-other-buffers auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
